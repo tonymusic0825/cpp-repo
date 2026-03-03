@@ -1,0 +1,48 @@
+# Executables
+*.exe
+*.out
+*.app
+*.ilk
+
+# Object files
+*.o
+*.obj
+
+# Static libraries
+*.a
+*.lib
+
+# Shared libraries
+*.dll
+*.so
+*.dylib
+
+# Debug symbols
+*.pdb
+
+# Build directories
+build/
+cmake-build-*/
+
+# CMake
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+compile_commands.json
+
+# Visual Studio
+.vs/
+*.vcxproj*
+*.sln
+*.user
+*.filters
+
+# MSYS2 / MinGW artifacts
+*.stackdump
+
+# macOS
+.DS_Store
+
+# Linux
+*.swp
