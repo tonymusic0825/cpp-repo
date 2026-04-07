@@ -29,11 +29,11 @@ int main() {
     // Add a few tasks
     // Use emplace_back instead of push_back
     // Thsi constructs the 'Task' directly into memory instead of temp 'Task'
-    tasks.emplace_back(Task("Fix Bug", 1));
-    tasks.emplace_back(Task("Fix Bug2", 42));
-    tasks.emplace_back(Task("Fix Bug3", 5612));
-    tasks.emplace_back(Task("Fix Bug4", 2));
-    tasks.emplace_back(Task("Fix Bug5", 10));
+    tasks.emplace_back("Fix Bug", 1);
+    tasks.emplace_back("Fix Bug2", 42);
+    tasks.emplace_back("Fix Bug3", 5612);
+    tasks.emplace_back("Fix Bug4", 2);
+    tasks.emplace_back("Fix Bug5", 10);
 
 
     // Sort the tasks in priority order
