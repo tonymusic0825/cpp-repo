@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <memory>
+#include <cassert>
 
 using namespace std;
 
@@ -25,6 +26,28 @@ class Node {
             if (left) {left->printTree(depth + 1);}
             if (right) {right->printTree(depth + 1);}
         }
+
+        // Search function for finding a specific node
+        // Returns raw pointer to node if it exists otherwise nullptr
+        const Node* findNode(string n) const {
+
+            if (name == n) {
+                return this;
+            } 
+            
+            if (left) {
+                const Node* result = left->findNode(n);
+                if (result != nullptr) {
+                    return result;
+                }
+            }
+
+            if (right) {
+                return right->findNode(n);
+            }
+
+            return nullptr;
+        }
 };
 
 
@@ -48,6 +71,9 @@ int main() {
 
 
     root -> printTree();
+
+    assert(root->findNode("Input_B.2") != nullptr); 
+    assert(root->findNode("Ghost_Node") == nullptr);
 
     return 0;
 }
