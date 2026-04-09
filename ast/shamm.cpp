@@ -81,7 +81,6 @@ class SubGraph : public BaseBlock {
 BaseBlock* findInReg(const string& name, const vector<unique_ptr<BaseBlock>>& registry) {
 
     for (const auto &reg : registry) {
-
         // If current reg is a 'BaseBlock'
         if (reg->name == name) {
             return reg.get();
@@ -116,6 +115,15 @@ int main() {
     core1->printInfo();
     
     assert(core1->getSize() == 8000);
+
+    // Test findInReg
+    registry.push_back(move(core1));
+    
+    assert(findInReg("DoesNotExist", registry) == nullptr);
+    cout << "DoesNotExist Passed!" << endl;
+    assert(findInReg("NPU_Core_0", registry) != nullptr);
+    cout << "Found NPU_Core_0!" << endl;
+
 
     return 0;
 }
