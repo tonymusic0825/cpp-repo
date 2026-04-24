@@ -108,12 +108,16 @@ int main() {
     core0->children.emplace_back(make_unique<DataBlock>("Weights", 5000));
     core0->children.emplace_back(make_unique<DataBlock>("Bias", 1000));
 
+    cout << "Before move: " << core0.get() << endl;
+
     auto core1 = make_unique<SubGraph>("System_Memory");
     core1->children.push_back(move(core0));
     core1->children.emplace_back(make_unique<DataBlock>("Input_Tensor", 2000));
 
     core1->printInfo();
     
+    cout << "After move: " << core0.get() << endl;
+
     assert(core1->getSize() == 8000);
 
     // Test findInReg
